@@ -1,0 +1,59 @@
+services:
+
+  # =====================================================
+  # Main Log Analyzer Service
+  # =====================================================
+
+  analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: log_analyzer
+
+    working_dir: /app
+
+    volumes:
+      - .:/app
+
+    stdin_open: true
+    tty: true
+
+    command:
+      [
+        "--file",
+        "test_server.log"
+      ]
+
+  # =====================================================
+  # Mock Log Generator Service
+  # =====================================================
+
+  generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: log_generator
+
+    working_dir: /app
+
+    volumes:
+      - .:/app
+
+    entrypoint:
+      [
+        "python",
+        "scripts/log-generator.py"
+      ]
+
+    command:
+      [
+        "--output",
+        "test_server.log",
+        "--lines",
+        "5000"
+      ]
+
+    stdin_open: true
+    tty: true
