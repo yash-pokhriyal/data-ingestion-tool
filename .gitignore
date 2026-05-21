@@ -1,0 +1,52 @@
+# =========================
+# Python cache files
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# Virtual environments
+# =========================
+venv/
+env/
+.venv/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+
+# =========================
+# Logs (VERY IMPORTANT)
+# =========================
+*.log
+test_server.log
+stress.log
+*.json
+
+# =========================
+# Docker artifacts
+# =========================
+*.tar
+docker-compose.override.yml
+
+# =========================
+# IDE files
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Python tooling
+# =========================
+.pytest_cache/
+.mypy_cache/
+
+# =========================
+# Build / dist
+# =========================
+build/
+dist/
+*.egg-info/
